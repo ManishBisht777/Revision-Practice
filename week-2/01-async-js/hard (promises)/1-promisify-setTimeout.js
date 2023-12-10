@@ -3,4 +3,13 @@
 */
 
 function wait(n) {
+  return new Promise((res, rej) => {
+    setTbimeout(() => {
+      res(`resolved after ${n} seconds`);
+    }, n * 1000);
+  });
 }
+
+wait(10)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
